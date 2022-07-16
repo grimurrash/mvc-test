@@ -8,23 +8,9 @@ class Kernel
 {
     public static function init(): void
     {
-        self::requireVendor();
         self::displayErrors();
-        self::setHelpers();
         self::setTimeZone();
         self::connectToDB();
-    }
-
-    /**
-     * Получить vendor, если есть
-     *
-     * @return void
-     */
-    protected static function requireVendor(): void
-    {
-        if (file_exists(DOCROOT . "vendor/autoload.php")) {
-            require_once DOCROOT . "vendor/autoload.php";
-        }
     }
 
     /**
@@ -50,18 +36,6 @@ class Kernel
 
         if (!empty($timezone)) {
             date_default_timezone_set($timezone);
-        }
-    }
-
-    /**
-     * Подключение вспомогательных функций
-     */
-    protected static function setHelpers(): void
-    {
-        // Подключаем системные функции
-        $file = DOCROOT . "app/helpers.php";
-        if (file_exists($file)) {
-            require_once $file;
         }
     }
 
