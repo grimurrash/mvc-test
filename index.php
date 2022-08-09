@@ -1,9 +1,12 @@
 <?php
 
-use app\core\Kernel;
-
 define('DOCROOT', dirname(__FILE__) . DIRECTORY_SEPARATOR);
 
-require_once __DIR__ . '/vendor/autoload.php';
+require_once DOCROOT . 'vendor/autoload.php';
+
+use App\Core\Kernel;
+use App\Core\Route;
 
 Kernel::init();
+
+Route::distribute();

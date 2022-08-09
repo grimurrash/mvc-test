@@ -7,7 +7,7 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 class Database
 {
     function __construct() {
-        $capsule = new Capsule;
+        $capsule = new Capsule();
 
         $capsule->addConnection([
           'driver' => config('db.driver'),

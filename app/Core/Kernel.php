@@ -32,7 +32,7 @@ class Kernel
 
     protected static function setTimeZone(?string $timezone = null): void
     {
-        $timezone = env('TIMEZONE');
+        $timezone = config('app.timezone');
 
         if (!empty($timezone)) {
             date_default_timezone_set($timezone);
@@ -41,7 +41,7 @@ class Kernel
 
     public static function connectToDB(): void
     {
-        if (env('DB_HOST') && env('DB_DATABASE') && env('DB_USERNAME'))
+        if (config('db.host') && config('db.database') && config('db.username'))
         {
             new Database();
         }
